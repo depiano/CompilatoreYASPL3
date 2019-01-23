@@ -1,0 +1,287 @@
+<ProgramOp>
+<DeclsVarOp>
+<VarDeclOp>
+<double/>
+<VarInitOp>
+<ID attr='sommagrande'/>
+<null/>
+<ID attr='sommapiccola'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+<VarDeclOp>
+<integer/>
+<VarInitOp>
+<ID attr='i'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+<VarDeclOp>
+<double/>
+<VarInitOp>
+<ID attr='x'/>
+<null/>
+<ID attr='y'/>
+<null/>
+<ID attr='risultato'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+<VarDeclOp>
+<boolean/>
+<VarInitOp>
+<ID attr='grande'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+<ProcDeclOp>
+<ID attr='moltiplicazione'/>
+<ParOp>
+<in/>
+<double/>
+<ID attr='x'/>
+<in/>
+<double/>
+<ID attr='y'/>
+<out/>
+<double/>
+<ID attr='res'/>
+<out/>
+<boolean/>
+<ID attr='grande'/>
+</ParOp>
+<BodyOp>
+<VarDeclsOp>
+<VarDeclOp>
+<double/>
+<VarInitOp>
+<ID attr='risultato'/>
+<InitializationOp>
+<MulOp>
+<ID attr='x'/>
+<ID attr='y'/>
+</MulOp>
+</InitializationOp>
+</VarInitOp>
+</VarDeclOp>
+</VarDeclsOp>
+<StatementsOp>
+<IfThenElseOp>
+<GeOp>
+<MulOp>
+<ID attr='x'/>
+<ID attr='y'/>
+</MulOp>
+<INT_CONST attr='100'/>
+</GeOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='grande'/>
+<BOOL_CONST attr='true'/>
+</AssignOp>
+</StatementsOp>
+</CompStatOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='grande'/>
+<BOOL_CONST attr='false'/>
+</AssignOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenElseOp>
+<AssignOp>
+<ID attr='res'/>
+<ID attr='risultato'/>
+</AssignOp>
+</StatementsOp>
+</BodyOp>
+</ProcDeclOp>
+</DeclsVarOp>
+<StatementsOp>
+<IfThenOp>
+<AndOp>
+<GtOp>
+<ID attr='i'/>
+<INT_CONST attr='10'/>
+</GtOp>
+<LtOp>
+<ID attr='i'/>
+<INT_CONST attr='11'/>
+</LtOp>
+</AndOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='grande'/>
+<BOOL_CONST attr='true'/>
+</AssignOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenOp>
+<AssignOp>
+<ID attr='sommagrande'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<AssignOp>
+<ID attr='sommapiccola'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<WriteOp>
+<ArgsOp>
+<String_CONST attr='Questo programma permette di svolgere una serie di moltiplicazioni'/>
+</ArgsOp>
+</WriteOp>
+<WriteOp>
+<ArgsOp>
+<String_CONST attr='accumulando i risultati &lt; 100 in sommagrande e quelli &lt; 100 in sommapiccola'/>
+</ArgsOp>
+</WriteOp>
+<AssignOp>
+<ID attr='i'/>
+<UminusOp>
+<INT_CONST attr='1'/>
+</UminusOp>
+</AssignOp>
+<WhileOp>
+<LeOp>
+<ID attr='i'/>
+<INT_CONST attr='0'/>
+</LeOp>
+<CompStatOp>
+<StatementsOp>
+<WriteOp>
+<ArgsOp>
+<String_CONST attr='Quante moltiplicazioni vuoi svolgere? (inserire intero &gt; 0)'/>
+</ArgsOp>
+</WriteOp>
+<ReadOP>
+<VarOp>
+<ID attr='i'/>
+</VarOp>
+</ReadOP>
+</StatementsOp>
+</CompStatOp>
+</WhileOp>
+<WhileOp>
+<GtOp>
+<ID attr='i'/>
+<INT_CONST attr='0'/>
+</GtOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='x'/>
+<UminusOp>
+<INT_CONST attr='1'/>
+</UminusOp>
+</AssignOp>
+<AssignOp>
+<ID attr='y'/>
+<UminusOp>
+<INT_CONST attr='1'/>
+</UminusOp>
+</AssignOp>
+<WhileOp>
+<NotOp>
+<AndOp>
+<GtOp>
+<ID attr='x'/>
+<INT_CONST attr='0'/>
+</GtOp>
+<GtOp>
+<ID attr='y'/>
+<INT_CONST attr='0'/>
+</GtOp>
+</AndOp>
+</NotOp>
+<CompStatOp>
+<StatementsOp>
+<WriteOp>
+<ArgsOp>
+<AddOp>
+<AddOp>
+<String_CONST attr='Moltiplicazione '/>
+<ID attr='i'/>
+</AddOp>
+<String_CONST attr=': inserisci due numeri positivi'/>
+</AddOp>
+</ArgsOp>
+</WriteOp>
+<ReadOP>
+<VarOp>
+<ID attr='x'/>
+<ID attr='y'/>
+</VarOp>
+</ReadOP>
+</StatementsOp>
+</CompStatOp>
+</WhileOp>
+<CallOp>
+<ID attr='moltiplicazione'/>
+<ArgsOp>
+<ID attr='x'/>
+<ID attr='y'/>
+<ID attr='risultato'/>
+<ID attr='grande'/>
+</ArgsOp>
+</CallOp>
+<IfThenElseOp>
+<ID attr='grande'/>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='sommagrande'/>
+<AddOp>
+<ID attr='sommagrande'/>
+<ID attr='risultato'/>
+</AddOp>
+</AssignOp>
+</StatementsOp>
+</CompStatOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='sommapiccola'/>
+<AddOp>
+<ID attr='sommapiccola'/>
+<ID attr='risultato'/>
+</AddOp>
+</AssignOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenElseOp>
+<AssignOp>
+<ID attr='i'/>
+<DiffOp>
+<ID attr='i'/>
+<INT_CONST attr='1'/>
+</DiffOp>
+</AssignOp>
+</StatementsOp>
+</CompStatOp>
+</WhileOp>
+<WriteOp>
+<ArgsOp>
+<AddOp>
+<String_CONST attr='Valore di sommagrande: '/>
+<ID attr='sommagrande'/>
+</AddOp>
+</ArgsOp>
+</WriteOp>
+<WriteOp>
+<ArgsOp>
+<AddOp>
+<String_CONST attr='Valore di sommapiccola: '/>
+<ID attr='sommapiccola'/>
+</AddOp>
+</ArgsOp>
+</WriteOp>
+<WriteOp>
+<ArgsOp>
+<String_CONST attr='ciao'/>
+</ArgsOp>
+</WriteOp>
+</StatementsOp>
+</ProgramOp>

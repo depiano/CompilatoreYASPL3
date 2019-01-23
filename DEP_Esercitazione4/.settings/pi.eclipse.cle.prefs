@@ -1,0 +1,15 @@
+//src/esercitazione_4/YASPL3.cup/cup-compact-red=false
+//src/esercitazione_4/YASPL3.cup/cup-debug=false
+//src/esercitazione_4/YASPL3.cup/cup-expected-conflicts=0
+//src/esercitazione_4/YASPL3.cup/cup-no-positions=false
+//src/esercitazione_4/YASPL3.cup/cup-no-scanner=false
+//src/esercitazione_4/YASPL3.cup/cup-non-terms=false
+//src/esercitazione_4/YASPL3.cup/cup-output=src
+//src/esercitazione_4/YASPL3.cup/cup-parser-class=YASPL3Cup
+//src/esercitazione_4/YASPL3.cup/cup-symbols-class=YASPL3Sym
+//src/esercitazione_4/YASPL3.cup/cup-symbols-if=true
+//src/esercitazione_4/YASPL3Lex.lex/lex-code-method=0
+//src/esercitazione_4/YASPL3Lex.lex/lex-comply-jlex=false
+//src/esercitazione_4/YASPL3Lex.lex/lex-output=src
+//src/esercitazione_4/YASPL3Lex.lex/lex-skip-min=false
+eclipse.preferences.version=1

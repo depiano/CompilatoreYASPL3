@@ -1,0 +1,948 @@
+<ProgramOp>
+<DeclsVarOp>
+<VarDeclOp>
+<integer/>
+<VarInitOp>
+<ID attr='i'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+<VarDeclOp>
+<integer/>
+<VarInitOp>
+<ID attr='scelta'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+<VarDeclOp>
+<boolean/>
+<VarInitOp>
+<ID attr='continua'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+<VarDeclOp>
+<char/>
+<VarInitOp>
+<ID attr='operandi'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+<VarDeclOp>
+<double/>
+<VarInitOp>
+<ID attr='operando1_Double'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+<VarDeclOp>
+<double/>
+<VarInitOp>
+<ID attr='operando2_Double'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+<VarDeclOp>
+<double/>
+<VarInitOp>
+<ID attr='risultatoDouble'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+<VarDeclOp>
+<integer/>
+<VarInitOp>
+<ID attr='operando1_Int'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+<VarDeclOp>
+<integer/>
+<VarInitOp>
+<ID attr='operando2_Int'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+<VarDeclOp>
+<integer/>
+<VarInitOp>
+<ID attr='risultatoInt'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+<ProcDeclOp>
+<ID attr='addizioneInt'/>
+<ParOp>
+<in attr='in'/>
+<integer/>
+<ID attr='x'/>
+<in attr='in'/>
+<integer/>
+<ID attr='y'/>
+<out attr='out'/>
+<integer/>
+<ID attr='res'/>
+</ParOp>
+<BodyOp>
+<null/>
+<StatementsOp>
+<AssignOp>
+<ID attr='res'/>
+<AddOp>
+<ID attr='x'/>
+<ID attr='y'/>
+</AddOp>
+</AssignOp>
+</StatementsOp>
+</BodyOp>
+</ProcDeclOp>
+<ProcDeclOp>
+<ID attr='addizioneDouble'/>
+<ParOp>
+<in attr='in'/>
+<double/>
+<ID attr='x'/>
+<in attr='in'/>
+<double/>
+<ID attr='y'/>
+<out attr='out'/>
+<double/>
+<ID attr='res'/>
+</ParOp>
+<BodyOp>
+<null/>
+<StatementsOp>
+<AssignOp>
+<ID attr='res'/>
+<AddOp>
+<ID attr='x'/>
+<ID attr='y'/>
+</AddOp>
+</AssignOp>
+</StatementsOp>
+</BodyOp>
+</ProcDeclOp>
+<ProcDeclOp>
+<ID attr='moltiplicazioneInt'/>
+<ParOp>
+<in attr='in'/>
+<integer/>
+<ID attr='x'/>
+<in attr='in'/>
+<integer/>
+<ID attr='y'/>
+<out attr='out'/>
+<integer/>
+<ID attr='res'/>
+</ParOp>
+<BodyOp>
+<VarDeclsOp>
+<VarDeclOp>
+<integer/>
+<VarInitOp>
+<ID attr='i'/>
+<InitializationOp>
+<INT_CONST attr='0'/>
+</InitializationOp>
+</VarInitOp>
+</VarDeclOp>
+</VarDeclsOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='res'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<WhileOp>
+<LtOp>
+<ID attr='i'/>
+<ID attr='y'/>
+</LtOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='res'/>
+<AddOp>
+<ID attr='res'/>
+<ID attr='x'/>
+</AddOp>
+</AssignOp>
+<AssignOp>
+<ID attr='i'/>
+<AddOp>
+<ID attr='i'/>
+<INT_CONST attr='1'/>
+</AddOp>
+</AssignOp>
+</StatementsOp>
+</CompStatOp>
+</WhileOp>
+</StatementsOp>
+</BodyOp>
+</ProcDeclOp>
+<ProcDeclOp>
+<ID attr='moltiplicazioneDouble'/>
+<ParOp>
+<in attr='in'/>
+<double/>
+<ID attr='x'/>
+<in attr='in'/>
+<double/>
+<ID attr='y'/>
+<out attr='out'/>
+<double/>
+<ID attr='res'/>
+</ParOp>
+<BodyOp>
+<VarDeclsOp>
+<VarDeclOp>
+<integer/>
+<VarInitOp>
+<ID attr='i'/>
+<InitializationOp>
+<INT_CONST attr='0'/>
+</InitializationOp>
+</VarInitOp>
+</VarDeclOp>
+</VarDeclsOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='res'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<WhileOp>
+<LtOp>
+<ID attr='i'/>
+<ID attr='y'/>
+</LtOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='res'/>
+<AddOp>
+<ID attr='res'/>
+<ID attr='x'/>
+</AddOp>
+</AssignOp>
+<AssignOp>
+<ID attr='i'/>
+<AddOp>
+<ID attr='i'/>
+<INT_CONST attr='1'/>
+</AddOp>
+</AssignOp>
+</StatementsOp>
+</CompStatOp>
+</WhileOp>
+</StatementsOp>
+</BodyOp>
+</ProcDeclOp>
+<ProcDeclOp>
+<ID attr='dividi'/>
+<ParOp>
+<in attr='in'/>
+<integer/>
+<ID attr='x'/>
+<in attr='in'/>
+<integer/>
+<ID attr='y'/>
+<out attr='out'/>
+<integer/>
+<ID attr='res'/>
+</ParOp>
+<BodyOp>
+<VarDeclsOp>
+<VarDeclOp>
+<integer/>
+<VarInitOp>
+<ID attr='i'/>
+<InitializationOp>
+<ID attr='x'/>
+</InitializationOp>
+</VarInitOp>
+</VarDeclOp>
+</VarDeclsOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='res'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<WhileOp>
+<GeOp>
+<ID attr='i'/>
+<ID attr='y'/>
+</GeOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='i'/>
+<DiffOp>
+<ID attr='i'/>
+<ID attr='y'/>
+</DiffOp>
+</AssignOp>
+<AssignOp>
+<ID attr='res'/>
+<AddOp>
+<ID attr='res'/>
+<INT_CONST attr='1'/>
+</AddOp>
+</AssignOp>
+</StatementsOp>
+</CompStatOp>
+</WhileOp>
+</StatementsOp>
+</BodyOp>
+</ProcDeclOp>
+<ProcDeclOp>
+<ID attr='potenza'/>
+<ParOp>
+<in attr='in'/>
+<integer/>
+<ID attr='x'/>
+<in attr='in'/>
+<integer/>
+<ID attr='y'/>
+<out attr='out'/>
+<integer/>
+<ID attr='res'/>
+</ParOp>
+<BodyOp>
+<VarDeclsOp>
+<VarDeclOp>
+<integer/>
+<VarInitOp>
+<ID attr='i'/>
+<InitializationOp>
+<INT_CONST attr='1'/>
+</InitializationOp>
+</VarInitOp>
+</VarDeclOp>
+</VarDeclsOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='res'/>
+<INT_CONST attr='1'/>
+</AssignOp>
+<WhileOp>
+<LeOp>
+<ID attr='i'/>
+<ID attr='y'/>
+</LeOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='res'/>
+<MulOp>
+<ID attr='res'/>
+<ID attr='x'/>
+</MulOp>
+</AssignOp>
+<AssignOp>
+<ID attr='i'/>
+<AddOp>
+<ID attr='i'/>
+<INT_CONST attr='1'/>
+</AddOp>
+</AssignOp>
+</StatementsOp>
+</CompStatOp>
+</WhileOp>
+</StatementsOp>
+</BodyOp>
+</ProcDeclOp>
+<ProcDeclOp>
+<ID attr='fibonacci'/>
+<ParOp>
+<in attr='in'/>
+<integer/>
+<ID attr='x'/>
+<out attr='out'/>
+<integer/>
+<ID attr='res'/>
+</ParOp>
+<BodyOp>
+<VarDeclsOp>
+<VarDeclOp>
+<integer/>
+<VarInitOp>
+<ID attr='f0'/>
+<InitializationOp>
+<INT_CONST attr='0'/>
+</InitializationOp>
+<ID attr='f1'/>
+<InitializationOp>
+<INT_CONST attr='1'/>
+</InitializationOp>
+<ID attr='i'/>
+<InitializationOp>
+<INT_CONST attr='2'/>
+</InitializationOp>
+<ID attr='ris'/>
+<null/>
+</VarInitOp>
+</VarDeclOp>
+</VarDeclsOp>
+<StatementsOp>
+<IfThenOp>
+<EqOp>
+<ID attr='x'/>
+<INT_CONST attr='1'/>
+</EqOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='ris'/>
+<INT_CONST attr='1'/>
+</AssignOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenOp>
+<WhileOp>
+<LeOp>
+<ID attr='i'/>
+<ID attr='x'/>
+</LeOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='ris'/>
+<AddOp>
+<ID attr='f1'/>
+<ID attr='f0'/>
+</AddOp>
+</AssignOp>
+<AssignOp>
+<ID attr='f0'/>
+<ID attr='f1'/>
+</AssignOp>
+<AssignOp>
+<ID attr='f1'/>
+<ID attr='ris'/>
+</AssignOp>
+<AssignOp>
+<ID attr='i'/>
+<AddOp>
+<ID attr='i'/>
+<INT_CONST attr='1'/>
+</AddOp>
+</AssignOp>
+</StatementsOp>
+</CompStatOp>
+</WhileOp>
+<AssignOp>
+<ID attr='res'/>
+<ID attr='ris'/>
+</AssignOp>
+</StatementsOp>
+</BodyOp>
+</ProcDeclOp>
+</DeclsVarOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='continua'/>
+<BOOL_CONST attr='true'/>
+</AssignOp>
+<WhileOp>
+<ID attr='continua'/>
+<CompStatOp>
+<StatementsOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='Questo programma permette di svolgere una serie di operazioni'/>
+</ArgsOp>
+</WriteOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='Scegli il tipo di operazione che vuoi eseguire, digita:'/>
+</ArgsOp>
+</WriteOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='- 2 per eseguire la somma di due numeri'/>
+</ArgsOp>
+</WriteOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='- 3 per eseguire la moltiplicazione di due numeri'/>
+</ArgsOp>
+</WriteOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='- 4 per eseguire la divisione intera fra due numeri positivi'/>
+</ArgsOp>
+</WriteOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='- 5 per eseguire l’elevamento a potenza '/>
+</ArgsOp>
+</WriteOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='- 6 per eseguire la successione di Fibonacci '/>
+</ArgsOp>
+</WriteOp>
+<ReadOP>
+<VarsOp>
+<ID attr='scelta'/>
+</VarsOp>
+</ReadOP>
+<IfThenOp>
+<OrOp>
+<EqOp>
+<ID attr='scelta'/>
+<INT_CONST attr='2'/>
+</EqOp>
+<EqOp>
+<ID attr='scelta'/>
+<INT_CONST attr='3'/>
+</EqOp>
+</OrOp>
+<CompStatOp>
+<StatementsOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='Scegli il tipo di operandi da usare, digita:'/>
+</ArgsOp>
+</WriteOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='- i per interi'/>
+</ArgsOp>
+</WriteOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='- d per double'/>
+</ArgsOp>
+</WriteOp>
+<ReadOP>
+<VarsOp>
+<ID attr='operandi'/>
+</VarsOp>
+</ReadOP>
+<IfThenElseOp>
+<EqOp>
+<ID attr='operandi'/>
+<CHAR_CONST attr='i'/>
+</EqOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='operando1_Int'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<AssignOp>
+<ID attr='operando2_Int'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<AssignOp>
+<ID attr='risultatoInt'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='Inserisci primo numero'/>
+</ArgsOp>
+</WriteOp>
+<ReadOP>
+<VarsOp>
+<ID attr='operando1_Int'/>
+</VarsOp>
+</ReadOP>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='Inserisci secondo numero'/>
+</ArgsOp>
+</WriteOp>
+<ReadOP>
+<VarsOp>
+<ID attr='operando2_Int'/>
+</VarsOp>
+</ReadOP>
+</StatementsOp>
+</CompStatOp>
+<CompStatOp>
+<StatementsOp>
+<IfThenOp>
+<EqOp>
+<ID attr='operandi'/>
+<CHAR_CONST attr='d'/>
+</EqOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='operando1_Double'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<AssignOp>
+<ID attr='operando2_Double'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<AssignOp>
+<ID attr='risultatoDouble'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='Inserisci primo numero'/>
+</ArgsOp>
+</WriteOp>
+<ReadOP>
+<VarsOp>
+<ID attr='operando1_Double'/>
+</VarsOp>
+</ReadOP>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='Inserisci secondo numero'/>
+</ArgsOp>
+</WriteOp>
+<ReadOP>
+<VarsOp>
+<ID attr='operando2_Double'/>
+</VarsOp>
+</ReadOP>
+</StatementsOp>
+</CompStatOp>
+</IfThenOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenElseOp>
+<IfThenElseOp>
+<AndOp>
+<EqOp>
+<ID attr='scelta'/>
+<INT_CONST attr='2'/>
+</EqOp>
+<EqOp>
+<ID attr='operandi'/>
+<CHAR_CONST attr='i'/>
+</EqOp>
+</AndOp>
+<CompStatOp>
+<StatementsOp>
+<CallOp>
+<ID attr='addizioneInt'/>
+<ArgsOp>
+<ID attr='operando1_Int'/>
+<ID attr='operando2_Int'/>
+<ID attr='risultatoInt'/>
+</ArgsOp>
+</CallOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='la somma vale='/>
+<ID attr='risultatoInt'/>
+</ArgsOp>
+</WriteOp>
+</StatementsOp>
+</CompStatOp>
+<CompStatOp>
+<StatementsOp>
+<IfThenOp>
+<AndOp>
+<EqOp>
+<ID attr='scelta'/>
+<INT_CONST attr='2'/>
+</EqOp>
+<EqOp>
+<ID attr='operandi'/>
+<CHAR_CONST attr='d'/>
+</EqOp>
+</AndOp>
+<CompStatOp>
+<StatementsOp>
+<CallOp>
+<ID attr='addizioneDouble'/>
+<ArgsOp>
+<ID attr='operando1_Double'/>
+<ID attr='operando2_Double'/>
+<ID attr='risultatoDouble'/>
+</ArgsOp>
+</CallOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='la somma vale='/>
+<ID attr='risultatoDouble'/>
+</ArgsOp>
+</WriteOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenElseOp>
+<IfThenElseOp>
+<AndOp>
+<EqOp>
+<ID attr='scelta'/>
+<INT_CONST attr='3'/>
+</EqOp>
+<EqOp>
+<ID attr='operandi'/>
+<CHAR_CONST attr='i'/>
+</EqOp>
+</AndOp>
+<CompStatOp>
+<StatementsOp>
+<CallOp>
+<ID attr='moltiplicazioneInt'/>
+<ArgsOp>
+<ID attr='operando1_Int'/>
+<ID attr='operando2_Int'/>
+<ID attr='risultatoInt'/>
+</ArgsOp>
+</CallOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='la moltiplicazione vale='/>
+<ID attr='risultatoInt'/>
+</ArgsOp>
+</WriteOp>
+</StatementsOp>
+</CompStatOp>
+<CompStatOp>
+<StatementsOp>
+<IfThenOp>
+<AndOp>
+<EqOp>
+<ID attr='scelta'/>
+<INT_CONST attr='3'/>
+</EqOp>
+<EqOp>
+<ID attr='operandi'/>
+<CHAR_CONST attr='d'/>
+</EqOp>
+</AndOp>
+<CompStatOp>
+<StatementsOp>
+<CallOp>
+<ID attr='moltiplicazioneDouble'/>
+<ArgsOp>
+<ID attr='operando1_Double'/>
+<ID attr='operando2_Double'/>
+<ID attr='risultatoDouble'/>
+</ArgsOp>
+</CallOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='la moltiplicazione vale='/>
+<ID attr='risultatoDouble'/>
+</ArgsOp>
+</WriteOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenElseOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenOp>
+<IfThenOp>
+<EqOp>
+<ID attr='scelta'/>
+<INT_CONST attr='4'/>
+</EqOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='operando1_Int'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<AssignOp>
+<ID attr='operando2_Int'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<AssignOp>
+<ID attr='risultatoInt'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='Inserisci dividendo'/>
+</ArgsOp>
+</WriteOp>
+<ReadOP>
+<VarsOp>
+<ID attr='operando1_Int'/>
+</VarsOp>
+</ReadOP>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='Inserisci divisore'/>
+</ArgsOp>
+</WriteOp>
+<ReadOP>
+<VarsOp>
+<ID attr='operando2_Int'/>
+</VarsOp>
+</ReadOP>
+<CallOp>
+<ID attr='dividi'/>
+<ArgsOp>
+<ID attr='operando1_Int'/>
+<ID attr='operando2_Int'/>
+<ID attr='risultatoInt'/>
+</ArgsOp>
+</CallOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='la divisione vale vale= '/>
+<ID attr='risultatoInt'/>
+</ArgsOp>
+</WriteOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenOp>
+<IfThenOp>
+<EqOp>
+<ID attr='scelta'/>
+<INT_CONST attr='5'/>
+</EqOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='operando1_Int'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<AssignOp>
+<ID attr='operando2_Int'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<AssignOp>
+<ID attr='risultatoInt'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='Inserisci base'/>
+</ArgsOp>
+</WriteOp>
+<ReadOP>
+<VarsOp>
+<ID attr='operando1_Int'/>
+</VarsOp>
+</ReadOP>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='Inserisci esponente'/>
+</ArgsOp>
+</WriteOp>
+<ReadOP>
+<VarsOp>
+<ID attr='operando2_Int'/>
+</VarsOp>
+</ReadOP>
+<CallOp>
+<ID attr='potenza'/>
+<ArgsOp>
+<ID attr='operando1_Int'/>
+<ID attr='operando2_Int'/>
+<ID attr='risultatoInt'/>
+</ArgsOp>
+</CallOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='la potenza vale= '/>
+<ID attr='risultatoInt'/>
+</ArgsOp>
+</WriteOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenOp>
+<IfThenOp>
+<EqOp>
+<ID attr='scelta'/>
+<INT_CONST attr='6'/>
+</EqOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='operando1_Int'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<AssignOp>
+<ID attr='risultatoInt'/>
+<INT_CONST attr='0'/>
+</AssignOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='Inserisci  numero'/>
+</ArgsOp>
+</WriteOp>
+<ReadOP>
+<VarsOp>
+<ID attr='operando1_Int'/>
+</VarsOp>
+</ReadOP>
+<CallOp>
+<ID attr='fibonacci'/>
+<ArgsOp>
+<ID attr='operando1_Int'/>
+<ID attr='risultatoInt'/>
+</ArgsOp>
+</CallOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='la sequenza di fibonacci vale= '/>
+<ID attr='risultatoInt'/>
+</ArgsOp>
+</WriteOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenOp>
+<IfThenOp>
+<OrOp>
+<LtOp>
+<ID attr='scelta'/>
+<INT_CONST attr='1'/>
+</LtOp>
+<GtOp>
+<ID attr='scelta'/>
+<INT_CONST attr='6'/>
+</GtOp>
+</OrOp>
+<CompStatOp>
+<StatementsOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='errore, il numero inserito non corrisponde a nessuna delle possibili scelte. Riprova!'/>
+</ArgsOp>
+</WriteOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='vuoi eseguire un&apos;altra operazione?(inserisci 0 per termiare o 1 per continuare)'/>
+</ArgsOp>
+</WriteOp>
+<ReadOP>
+<VarsOp>
+<ID attr='i'/>
+</VarsOp>
+</ReadOP>
+<IfThenOp>
+<EqOp>
+<ID attr='i'/>
+<INT_CONST attr='0'/>
+</EqOp>
+<CompStatOp>
+<StatementsOp>
+<AssignOp>
+<ID attr='continua'/>
+<BOOL_CONST attr='false'/>
+</AssignOp>
+</StatementsOp>
+</CompStatOp>
+</IfThenOp>
+</StatementsOp>
+</CompStatOp>
+</WhileOp>
+<WriteOp>
+<ArgsOp>
+<STRING_CONST attr='Programma finito'/>
+</ArgsOp>
+</WriteOp>
+</StatementsOp>
+</ProgramOp>

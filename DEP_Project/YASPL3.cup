@@ -1,0 +1,564 @@
+package esercitazione_5;
+import SyntaxTree.*;
+import java_cup.runtime.*;
+ 
+ parser code{: 
+	YASPL3Lex lexer;
+	
+	public YASPL3Cup(YASPL3Lex  lexer){
+	    super(lexer); 
+	    this.lexer = lexer;
+    }
+    :}; 
+  
+ scan with {: return lexer.next_token(); :};
+
+terminal		HEAD,START,INT,BOOL,DOUBLE,STRING,CHAR,DEF,TRUE,FALSE,IF,THEN,WHILE,DO,ELSE;
+terminal		FOR;
+terminal 		MOD;
+terminal		STRUCT;
+terminal		SWITCH,CASE, TWOPOINTS, BREAK, DEFAULT;
+terminal		LQPAR,RQPAR; 
+terminal		SEMI,COMMA,LPAR,RPAR,LGPAR,RGPAR;
+terminal		PLUS,MINUS,TIMES,DIV;
+terminal		GT,GE,LT,LE,EQ;
+terminal		NOT,AND,OR;
+terminal		ASSIGN;
+terminal		IN,OUT,INOUT;
+terminal		String INT_CONST,DOUBLE_CONST,CHAR_CONST,STRING_CONST;
+terminal		READ,WRITE;
+terminal 		String ID;
+terminal		UMINUS;
+
+ 
+non terminal 	ScopeNode Programma, Def_decl;
+non terminal    OpNode  Statements, Decls, Body, Var_decl, Var_decls, Par_decls,Vars;
+non terminal	Node Stat;
+non terminal	OpNode Var_decls_init,Var_decls_init_list;
+non terminal	OpNode Var_init_value;
+non terminal    Node Expr; 
+non terminal 	Leaf Par_Type,Type;
+non terminal	Node Comp_stat;
+non terminal	OpNode Args; 
+non terminal	Node Decls_list,Statements_list, Vars_List, Var_decl_list,Par_decls_list,Args_list;
+non terminal 	Node CaseList;
+non terminal 	OpNode Var_struct_list;
+
+precedence nonassoc  ELSE; 
+precedence left PLUS,MINUS,OR;
+precedence left TIMES,DIV,AND;
+precedence nonassoc GT, GE, LT, LE, EQ , MOD;
+precedence left UMINUS, NOT, COMMA;
+
+
+
+Programma			::=	HEAD Decls:decls START Statements:statements
+					
+					{: RESULT= new ProgramOp("ProgramOp",decls,statements);:};
+							
+							
+Decls				::= Var_decl:vardecl Decls_list:declList
+
+						{: OpNode toReturn =new OpNode("DeclsVarOp",vardecl);
+						if(declList!=null){
+							for (Node node : ((OpNode) declList).nodeList()){
+								toReturn.addNode(node);
+							}
+						}
+						RESULT = toReturn; 
+						 :}
+						 
+						 |
+	 						
+					 Def_decl:defDecl  Decls_list:declList
+							{: OpNode toReturn =new OpNode("DefDeclOp",defDecl);
+								if(declList!=null){
+									for (Node node : ((OpNode) declList).nodeList()){
+										toReturn.addNode(node);
+									}
+								}
+							RESULT = toReturn; 	
+							:}
+							
+							|
+							
+					{: RESULT = null; :};
+							
+
+Decls_list				::= Var_decl:varDecl Decls_list:declList
+						{: OpNode toReturn =new OpNode("Declslist",varDecl);
+						if(declList!=null){
+							for (Node node : ((OpNode) declList).nodeList()){
+								toReturn.addNode(node);
+							}
+						}
+						RESULT = toReturn; 
+						 :}
+						 
+						 |
+	 						
+					 Def_decl:defDecl  Decls_list:declList
+							{: OpNode toReturn =new OpNode("Declslist",defDecl);
+								if(declList!=null){
+									for (Node node : ((OpNode) declList).nodeList()){
+										toReturn.addNode(node);
+									}
+								}
+							RESULT = toReturn; 	
+							:}
+							
+							|
+							
+					{: RESULT = null; :};
+					
+Statements			::= Stat:stat Statements_list:statementsList
+					{:  OpNode toReturn =new OpNode("StatementsOp",stat);
+						if(statementsList!=null){
+							for(Node node :((OpNode) statementsList).nodeList()){
+								toReturn.addNode(node);
+							}
+						}
+						RESULT= toReturn;
+					 :}
+						
+					|
+				{: RESULT = null; :};
+					
+Statements_list			::= Stat:stat Statements_list:statementsList
+					{:  OpNode toReturn =new OpNode("StatementsList",stat);
+						if(statementsList!=null){
+							for(Node node :((OpNode) statementsList).nodeList()){
+								toReturn.addNode(node);
+							}
+						}
+						RESULT= toReturn;
+					 :}
+						
+					|
+				{: RESULT = null; :};
+				
+				
+Var_decl         ::= Type:type Var_decls_init:varDeclsInit SEMI
+					{: RESULT=new VarDeclOp("VarDeclOp",type,varDeclsInit);:}
+					|
+					Type:type ID:id LQPAR Expr:expr1 RQPAR SEMI
+					{: RESULT=new ArrayOp("ArrayOp",type,new ArrayIndexOp("ArrayIndexOp",new Leaf("ID",id,""),expr1));
+					:}
+					|
+					STRUCT ID:id LGPAR Var_struct_list:varstructlist RGPAR SEMI
+					{:
+					RESULT=new StructOp("StructOp",new Leaf("ID",id,""),varstructlist);
+					:};
+					
+Var_struct_list		::= Type:type Var_decls_init:varDeclsInit SEMI Var_struct_list:varstructlist
+					{:  
+						OpNode toReturn =new StructInitOp("StructInitOp",new VarDeclOp("VarDeclOp",type,varDeclsInit));
+						if(varstructlist!=null){
+							for(Node node :((OpNode) varstructlist).nodeList()){
+								toReturn.addNode(node);
+							}
+						}
+						RESULT= toReturn;
+					 :}
+					|
+					
+					Type:type ID:id LQPAR Expr:expr1 RQPAR SEMI Var_struct_list:varstructlist
+					{: 
+						OpNode toReturn =new StructInitOp("StructInitOp",new ArrayOp("ArrayOp",type,new ArrayIndexOp("ArrayIndexOp",new Leaf("ID",id,""),expr1)));
+						if(varstructlist!=null){
+							for(Node node :((OpNode) varstructlist).nodeList()){
+								toReturn.addNode(node);
+							}
+						}
+						RESULT= toReturn;
+					:}
+					
+					|
+					
+					{: RESULT = null; :};						
+
+
+Type			::=INT
+				   {:RESULT= new Leaf("integer", null,"integer"); :}
+				   |
+				   BOOL
+				   {:RESULT= new Leaf ("boolean", null,"boolean");:}
+				   |
+				   DOUBLE
+				   {:RESULT= new Leaf ("double", null,"double");:}	
+				   |
+				   STRING
+				   {:RESULT= new Leaf ("string", null,"string");:}
+				   |
+				   CHAR
+				   {:RESULT= new Leaf ("char", null,"char");:};
+				     
+				   
+Var_decls_init   ::= ID:id Var_init_value: varInitValue  Var_decls_init_list: varDecInList
+					{: OpNode toReturn= new VarInitOp("VarInitOp",new Leaf("ID",id,""),varInitValue); 
+					if(varDecInList!=null){
+						for(Node node:((OpNode) varDecInList).nodeList()){
+							toReturn.addNode(node);
+						}
+					}
+					
+					RESULT = toReturn; 
+					:};
+					
+					   
+
+Var_decls_init_list ::= COMMA ID:id Var_init_value: varInitValue  Var_decls_init_list: varDecInList
+						{: OpNode toReturn= new VarInitOp("VarInitList",new Leaf("ID",id,""),varInitValue); 
+						if(varDecInList!=null){
+							for(Node node:((OpNode) varDecInList).nodeList()){
+		  						toReturn.addNode(node);
+							}
+						}
+					RESULT = toReturn;:}
+						|
+						{: RESULT= null;:};
+						
+					 	
+Var_init_value			::= ASSIGN Expr:expr
+						{:RESULT=new OpNode("InitializationOp",expr);:}
+						|
+						{:RESULT= null;:};
+						
+
+Vars					::= ID:id Vars_List:varsList
+						{:  OpNode toReturn= new OpNode("VarsOp",new Leaf("ID",id,"")); 
+						if(varsList!=null){
+							for(Node node: ((OpNode) varsList).nodeList()){
+								toReturn.addNode(node);
+							}
+						
+						}											
+						RESULT=toReturn;
+						:};
+						
+Vars_List				::= COMMA ID:id Vars_List:varList
+						{:OpNode toReturn= new OpNode("VarsList",new Leaf("ID",id,""));
+						if(varList!=null){
+							for(Node node:((OpNode) varList).nodeList()){
+								toReturn.addNode(node);
+							}
+						}		
+						RESULT=toReturn; :}
+						|
+						{: RESULT=null; :};
+						
+						
+Def_decl				::= DEF ID:id LPAR Par_decls:parDecls RPAR Body:body
+						{: 
+						RESULT= new ProcDeclOp("ProcDeclOp",new Leaf("ID",id,""),parDecls,body);
+						:}
+						
+						|
+						
+						DEF ID:id LPAR RPAR Body:body
+						{: RESULT= new ProcDeclOp("ProcDeclOp",new Leaf("ID",id,""),body);
+						
+						:};
+
+Var_decls				::= Var_decl:varDecl	Var_decl_list: varDeclList
+					
+						{:OpNode toReturn= new OpNode ("VarDeclsOp",varDecl);
+						if(varDeclList!=null){
+							for(Node node:((OpNode) varDeclList).nodeList()){
+								toReturn.addNode(node);
+								
+							}
+						}
+						RESULT= toReturn;
+						 :}
+						 
+						 |
+						 {:RESULT=null;:};
+
+Var_decl_list			::=Var_decl:varDecl	Var_decl_list: varDeclList
+				
+						{:OpNode toReturn= new OpNode ("VarDeclList",varDecl);
+					  	if(varDeclList!=null){
+							for(Node node:((OpNode) varDeclList).nodeList()){
+									toReturn.addNode(node);
+							}
+						}
+						RESULT= toReturn;
+						 :}
+						 
+						 |
+						 {:RESULT=null;:};
+
+
+
+
+
+Par_decls			::=Par_Type:parType Type:type ID:id Par_decls_list:parDeclsList	
+
+					{: OpNode toReturn= new ParOp("ParOp",parType,type,new Leaf("ID",id,""));
+						if(parDeclsList!=null){
+							for(Node node: ((OpNode)parDeclsList).nodeList()){
+								toReturn.addNode(node);
+							}
+					
+						}
+					
+						RESULT=toReturn;
+					:};
+						
+Par_decls_list		::=COMMA Par_Type:parType Type:type ID:id Par_decls_list:parDeclsList	
+
+						{: OpNode toReturn= new ParOp("ParDeclsList",parType,type,new Leaf("ID",id,""));
+						   if(parDeclsList!=null){
+						   	for(Node node:((OpNode) parDeclsList).nodeList()){
+						   		toReturn.addNode(node);
+						   	}
+						   
+						   }
+						   RESULT=toReturn;
+						
+						:}	
+						|
+						{: RESULT=null; :}; 				
+						
+						
+Par_Type				::=IN
+						   {:RESULT= new Leaf("in","in",null);  :}
+						   |
+						   OUT						
+						  {:RESULT= new Leaf("out","out",null);  :}
+						   |
+						   INOUT
+						  {:RESULT= new Leaf("inout","inout", null);  :};
+						  
+						  
+Body					::=LGPAR  Var_decls:varDecls  Statements:statements RGPAR
+						{:RESULT= new OpNode("BodyOp",varDecls,statements);
+						:};		 
+
+Stat					::=Vars:vars READ SEMI
+							{:RESULT=new ReadOp("ReadOP",vars);:}
+							
+							|
+							Args:args WRITE SEMI
+							{:RESULT= new WriteOp("WriteOp",args); :}
+							|
+							
+							ID:id ASSIGN Expr:expr SEMI
+							{:RESULT= new AssignOp("AssignOp",new Leaf("ID",id,""),expr); :}
+							
+							|
+							ID:id LPAR Args:args RPAR SEMI
+							{:RESULT= new CallOp("CallOp",new Leaf("ID",id,""),args); :}
+							|
+							ID:id LPAR RPAR SEMI
+							{:RESULT= new CallOp("CallOp",new Leaf("ID",id,"")); :}
+							|
+							IF LPAR Expr:expr RPAR THEN Comp_stat:compStat1 ELSE Comp_stat:compStat2
+							{:RESULT= new IfThenElseOp("IfThenElseOp",expr,compStat1,compStat2);:}
+							|
+							IF LPAR Expr:expr RPAR THEN Comp_stat:compStat
+							{:RESULT=new IfThenOp("IfThenOp",expr,compStat);:}
+							|
+							WHILE LPAR Expr:expr RPAR DO Comp_stat:compStat
+							{:RESULT=new WhileOp("WhileOp",expr,compStat);:}
+							|
+							FOR LPAR ID:id1 ASSIGN Expr:expr1 SEMI Expr:expr2 SEMI ID:id2 ASSIGN Expr:expr3 RPAR Body:bd
+							{: RESULT=new ForOp("ForOp",new AssignOp("AssignOp",new Leaf("ID",id1,""),expr1),expr2,new AssignOp("AssignOp",new Leaf("ID",id2,""),expr3),bd); :}
+							|
+							ID:id PLUS PLUS SEMI
+							{: RESULT=new IncrementsOp("IncrementOp",new Leaf("ID",id,""));
+							:}
+							|
+							ID:id MINUS MINUS SEMI
+							{: RESULT=new DecreaseOp("DecreaseOp",new Leaf("ID",id,""));
+							:}
+							|
+							SWITCH LPAR ID:id RPAR LGPAR CaseList:case_list RGPAR
+							{: RESULT=new SwitchOp("SwitchOp",new Leaf("ID",id,""),case_list);
+							:}
+							|
+							ID:id LQPAR INT_CONST:index RQPAR ASSIGN Expr:expr1 SEMI
+							{:
+								RESULT=new ArrayAssignOp("ArrayAssignOp",new ArrayIndexOp("ArrayIndexOp",new Leaf("ID",id,""),new Leaf("INT_CONST",index,"integer")),expr1);
+							:}
+							|
+							DEF ID:id LPAR Par_decls:parDecls RPAR LGPAR Var_decls:varDecls  Statements:statements RGPAR SEMI
+							{: 
+								RESULT= new InternalDefOp("InternalDefOp",new ProcDeclOp("ProcDeclOp",new Leaf("ID",id,""),parDecls,new OpNode("BodyOp",varDecls,statements)));
+							:};
+							
+						
+	CaseList			::=CASE Expr:expr1 TWOPOINTS Var_decls:vardecls1 Statements:statements1 BREAK SEMI CaseList:case_list
+						{:
+							OpNode toReturn=new CaseListOp("CaseListOp",new CaseOp("CaseOp",expr1,vardecls1, statements1));
+							if(case_list!=null){
+								for(Node node :((OpNode)case_list).nodeList()){
+									toReturn.addNode(node);
+								
+								}
+							
+							}
+							RESULT=toReturn;
+						:}
+						|
+						DEFAULT TWOPOINTS Var_decls:vardecls1 Statements:statements1 BREAK SEMI
+						{: RESULT=new CaseListOp("CaseListOp",new DefaultOp("DefaultOp",vardecls1, statements1));
+							:}
+						|
+						{: 
+							RESULT=null; :};
+							
+							
+	Args				::=Expr:expr Args_list:argsList
+							{:
+							OpNode toReturn=new OpNode("ArgsOp",expr);
+							if(argsList!=null){
+								for(Node node :((OpNode)argsList).nodeList()){
+									toReturn.addNode(node);
+								
+								}
+							
+							}
+							RESULT=toReturn;
+							
+							:};					
+							
+Args_list					::=COMMA Expr:expr Args_list:argsList
+							{:
+							
+							 OpNode toReturn=new OpNode("argsList",expr);
+							
+							if(argsList!=null){
+								for(Node node :((OpNode)argsList).nodeList()){
+									toReturn.addNode(node);
+								
+								}
+								
+							}
+							RESULT=toReturn;
+							:}
+							
+							|	
+							{: 
+							RESULT=null; :};
+							
+
+Comp_stat					::=	LGPAR Statements:statements RGPAR		
+								{:RESULT=new OpNode("CompStatOp",statements);:};
+								
+								
+											
+Expr						::=Expr:expr1 PLUS  Expr:expr2
+								{: RESULT = new MathOp("AddOp", expr1, expr2);:}	
+							
+							 
+							 |
+							 Expr:expr1 MINUS  Expr:expr2
+								{: RESULT = new MathOp("DiffOp", expr1, expr2);:}	
+							
+							 
+							 |
+							 Expr:expr1 TIMES  Expr:expr2
+								{: RESULT = new MathOp("MulOp", expr1, expr2);:}	
+							
+							 
+							 |
+							 Expr:expr1 DIV  Expr:expr2
+								{: RESULT = new MathOp("DivOp", expr1, expr2);:}	
+							
+							 
+							 |
+							 Expr:expr1 AND  Expr:expr2
+								{: RESULT = new MathOp("AndOp", expr1, expr2);:}	
+							
+							 
+							 |
+							
+							Expr:expr1 OR  Expr:expr2
+								{: RESULT = new MathOp("OrOp", expr1, expr2);:}	
+							
+							 
+							 |
+							 Expr:expr1 GE  Expr:expr2
+								{: RESULT = new MathOp("GeOp", expr1, expr2);:}	
+							
+							 
+							 |
+							 Expr:expr1 LT  Expr:expr2
+								{: RESULT = new MathOp("LtOp", expr1, expr2);:}	
+							
+							 
+							 |
+							Expr:expr1 LE  Expr:expr2
+								{: RESULT = new MathOp("LeOp", expr1, expr2);:}	
+							
+							 
+							 |
+							
+							Expr:expr1 EQ  Expr:expr2
+								{: RESULT = new MathOp("EqOp", expr1, expr2);:}	
+									 			
+							 |
+							 
+							 Expr:expr1 GT  Expr:expr2
+								{: RESULT = new MathOp("GtOp", expr1, expr2);:}	
+									 			
+							 |
+							 
+							 Expr:expr1 MOD Expr:expr2
+							 {: RESULT = new ModOp("ModOp",expr1,expr2); :}
+							 
+							 |
+							 
+							 MINUS Expr:expr 
+							 {: RESULT = new SingleOp("UminusOp", expr); :} %prec UMINUS
+							 
+							 |
+							 
+							 NOT Expr:expr
+							 
+							 {:RESULT=new SingleOp("NotOp",expr);  :}
+							 
+							 |
+							 
+							  LPAR Expr:expr RPAR
+							 {:RESULT=expr;  :}
+							 
+							 |
+							 
+							 TRUE
+							 {: RESULT= new Leaf("BOOL_CONST","true","boolean"); :}
+							 |
+							 FALSE
+							{: RESULT= new Leaf("BOOL_CONST","false", "boolean"); :}
+							
+							|
+							ID:id 
+							
+							{:RESULT=new Leaf("ID",id,""); 
+							:}
+							
+							|
+							 INT_CONST:intConst
+							 {:RESULT=new Leaf("INT_CONST",intConst,"integer"); 
+							:}		
+
+							|
+							 DOUBLE_CONST:doubleConst
+							 {:RESULT=new Leaf("DOUBLE_CONST",doubleConst,"double"); 
+							:}	
+							|
+							 STRING_CONST:stringConst
+							 {:
+							 RESULT=new Leaf("STRING_CONST",stringConst,"string"); 
+							:}
+							|
+							 CHAR_CONST:charConst
+							 {:RESULT=new Leaf("CHAR_CONST",charConst,"char"); 
+							:}
+							|
+							ID:id LQPAR INT_CONST:index RQPAR
+							{:RESULT=new ArrayIndexOp("ArrayIndexOp",new Leaf("ID",id,""),new Leaf("INT_CONST",index,"integer"));
+							:};
+						

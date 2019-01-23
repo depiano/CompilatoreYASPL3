@@ -1,0 +1,3 @@
+if a > 1.0 then if x < y then z <-- x >= 3;   a <-- 5; b <-- a <= b;
+if a > 1.0 then if x < y then    a <-- 5; b <-- a <= b; z <-- x >= 3
+

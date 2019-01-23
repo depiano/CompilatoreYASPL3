@@ -1,0 +1,16 @@
+head
+int i,j,k;
+double g;
+
+
+
+
+
+
+
+start
+
+i=11;
+if(((i>10) and (i<=11)) or (i>20)) then {
+"CiaoMondo" ->;
+}

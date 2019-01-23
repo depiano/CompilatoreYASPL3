@@ -1,0 +1,15 @@
+//YASPL3.cup/cup-compact-red=false
+//YASPL3.cup/cup-debug=false
+//YASPL3.cup/cup-expected-conflicts=0
+//YASPL3.cup/cup-no-positions=false
+//YASPL3.cup/cup-no-scanner=false
+//YASPL3.cup/cup-non-terms=false
+//YASPL3.cup/cup-output=src
+//YASPL3.cup/cup-parser-class=YASPL3Cup
+//YASPL3.cup/cup-symbols-class=YASPL3Sym
+//YASPL3.cup/cup-symbols-if=true
+//YASPL3.lex/lex-code-method=0
+//YASPL3.lex/lex-comply-jlex=false
+//YASPL3.lex/lex-output=src
+//YASPL3.lex/lex-skip-min=false
+eclipse.preferences.version=1

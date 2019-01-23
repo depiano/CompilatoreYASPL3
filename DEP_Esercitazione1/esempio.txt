@@ -1,0 +1,15 @@
+ab&&a
+if a then b <--1
+123.4E-
+.123.4E2 prova then .c_! if d<=3 *??=
+if (a>b){ then a <-- 0}
+else{
+a<--a+1
+}
+12.3E
+1..5
+..3
+2,45+
+f <-- d/f
+a||b
+/* dsdda */

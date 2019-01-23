@@ -1,0 +1,106 @@
+head
+
+int i;
+int scelta;
+double operando1_Double;
+double operando2_Double;
+double risultatoDouble;
+
+
+int operando1_Int;
+int operando2_Int;
+int risultatoInt;
+
+
+
+
+def moltiplicazione(in double x, in double y, out double res)
+{
+ res=x*y;
+}
+
+def addizione(in int x, in double y, out int res)
+{
+res=x+y;
+}
+def divisione(in double x, in double y, out double res)
+{
+res=x+y;
+}
+
+def sottrazione(in int x, in double y, out int res){
+res=x-y;
+}
+
+start
+
+"Questo programma permette di svolgere una serie di calcoli" ->;
+scelta=-1;
+i=-1;
+
+
+
+while ( not(i==0))
+					do{
+						"Scegli il tipo di operazione che vuoi eseguire, digita:" ->;
+						"- 2 per eseguire una moltiplicazione" ->;
+						"- 3 per eseguire una sottrazione" ->;
+						"- 4 per eseguire una divisione" ->;
+						"- 5 per eseguire un' addizione " ->;
+						
+						scelta <-;
+
+
+					if(scelta==2 or scelta==4) then{
+ 							operando1_Double=0;
+ 							operando2_Double=0;
+ 							risultatoDouble=0;
+
+							"Inserisci primo numero" ->;
+							operando1_Double <-;
+							"Inserisci secondo numero" ->;
+							operando2_Double <-;
+						
+						
+						if(scelta==2) then{
+									moltiplicazione(operando1_Double, operando2_Double , risultatoDouble);
+   									"valore moltiplicazione=",   risultatoDouble->;
+   							}
+   							else{
+   								if(scelta==4) then{
+									divisione(operando1_Double, operando2_Double , risultatoDouble);
+   									"valore divisione=",   risultatoDouble ->;
+   							
+   								}
+							}
+					}
+					
+					else{
+								if(scelta==3 or scelta==5) then{
+										operando1_Int=0;
+ 										operando2_Int=0;
+ 										risultatoInt=0;
+										"Inserisci primo numero" ->;
+										operando1_Int <-;
+										"Inserisci secondo numero" ->;
+										operando2_Int <-;
+									
+									
+										if(scelta==3) then{
+											sottrazione(operando1_Int, operando2_Int , risultatoInt);
+   											"valore sottrazoione=",   risultatoInt ->;
+   										}
+   										else{
+   										
+   											if(scelta==5) then{
+												addizione(operando1_Int, operando2_Int , risultatoInt);
+   												"valore addizione=",   risultatoInt ->;
+   											}
+										}
+								}
+						}
+						
+						"vuoi eseguire un'altra operazione?(inserisci 0 per termiare o 1 per continuare)"  ->;
+						i <-; 
+}
+						"Programma finito"  ->;

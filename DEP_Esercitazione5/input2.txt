@@ -1,0 +1,238 @@
+head
+
+int i;
+int scelta;
+bool continua;
+char operandi;
+double operando1_Double;
+double operando2_Double;
+double risultatoDouble;
+
+
+int operando1_Int;
+int operando2_Int;
+int risultatoInt;
+
+
+
+
+def addizioneInt(in int x, in int y, out int res)
+{
+res=x+y;
+}
+def addizioneDouble(in double x, in double y, out double res)
+{
+res=x+y;
+}
+
+def moltiplicazioneInt(in int x, in int y, out int res)
+{
+int i=0;
+res=0;
+
+while(i<y) do{
+res=res+x;
+i=i+1;
+}
+
+
+}
+
+def moltiplicazioneDouble(in double x, in double y, out double res)
+{
+int i=0;
+res=0;
+
+while(i<y) do{
+res=res+x;
+i=i+1;
+}
+
+
+}
+
+
+def dividi (in int x,in int y, out int res)
+{
+ int i = x;
+    res = 0;
+   
+
+    while (i >= y) do
+      {
+        i = i - y;
+        res=res+1;
+      }
+
+    
+}
+
+def potenza (in int x,in int y,out int res){
+    int i=1;
+    res = 1;
+   	
+   	while(i<=y) do{
+		res=res*x;
+		i=i+1;
+		}
+}
+
+def fibonacci(in int x, out int res)
+{
+	int f0=0, f1=1, i=2, ris;
+	
+	if(x==1) then{
+	ris=1;
+	}
+	while ( i<=x) do
+	{
+	
+	
+		ris= f1 + f0;
+		f0= f1;
+		f1= ris;
+		i= i + 1;
+
+	}
+
+	res= ris;
+	
+}
+
+
+
+
+
+
+start
+continua=true;
+while(continua)do {
+			"Questo programma permette di svolgere una serie di operazioni" ->;
+			"Scegli il tipo di operazione che vuoi eseguire, digita:" ->;
+			"- 2 per eseguire la somma di due numeri" ->;
+			"- 3 per eseguire la moltiplicazione di due numeri" ->;
+			"- 4 per eseguire la divisione intera fra due numeri positivi" ->;
+			"- 5 per eseguire l’elevamento a potenza " ->;
+			"- 6 per eseguire la successione di Fibonacci " ->;
+
+			scelta <-;
+
+		if((scelta ==2) or (scelta ==3)) then{
+				"Scegli il tipo di operandi da usare, digita:" ->;
+				"- i per interi" ->;
+				"- d per double" ->;
+				operandi <-;
+
+		if(operandi == 'i') then{
+				operando1_Int=0;
+				operando2_Int=0;
+				risultatoInt=0;
+				"Inserisci primo numero" ->;
+				operando1_Int <-;
+				"Inserisci secondo numero" ->;
+				operando2_Int <-;
+		}
+
+	else{
+		if(operandi=='d') then{
+				operando1_Double=0;
+				operando2_Double=0;
+				risultatoDouble=0;
+				"Inserisci primo numero" ->;
+				operando1_Double <-;
+				"Inserisci secondo numero" ->;
+				operando2_Double <-;
+
+		}
+	}
+	
+	
+	if((scelta ==2) and (operandi =='i')) then{
+
+			addizioneInt(operando1_Int,operando2_Int,risultatoInt);
+			"la somma vale=", risultatoInt->;
+	}
+	else{
+
+		if((scelta ==2) and (operandi =='d')) then{
+			addizioneDouble(operando1_Double,operando2_Double,risultatoDouble);
+			"la somma vale=", risultatoDouble->;
+		}
+
+	}
+	
+
+	
+	
+	if((scelta ==3) and (operandi =='i')) then{
+
+			moltiplicazioneInt(operando1_Int,operando2_Int,risultatoInt);
+			"la moltiplicazione vale=", risultatoInt->;
+	}
+	else{
+
+		if((scelta ==3) and (operandi =='d')) then{
+			moltiplicazioneDouble(operando1_Double,operando2_Double,risultatoDouble);
+			"la moltiplicazione vale=", risultatoDouble->;
+		}
+
+	}
+	
+	
+	
+ }
+ 
+ 
+ 
+	if( scelta ==4   )then {
+			operando1_Int=0;
+			operando2_Int=0;
+			risultatoInt=0;
+			"Inserisci dividendo" ->;
+			operando1_Int <-;
+			"Inserisci divisore" ->;
+			operando2_Int <-;
+			 dividi(operando1_Int,operando2_Int,risultatoInt);
+			   "la divisione vale vale= ", risultatoInt->;
+	}
+	
+  	if(scelta==5) then {
+  	
+  			operando1_Int=0;
+			operando2_Int=0;
+			risultatoInt=0;
+			"Inserisci base" ->;
+			operando1_Int <-;
+			"Inserisci esponente" ->;
+			operando2_Int <-;
+			   potenza(operando1_Int,operando2_Int,risultatoInt);
+			   "la potenza vale= ", risultatoInt->;
+			 
+			 }
+ 
+ 
+ 	if(scelta ==6) then{
+ 		operando1_Int=0;
+ 		risultatoInt=0;
+		"Inserisci  numero" ->;
+		operando1_Int <-;
+ 		 fibonacci(operando1_Int,risultatoInt);
+		 "la sequenza di fibonacci vale= ", risultatoInt->;
+ 	}
+ 
+if((scelta<1) or (scelta >6) ) then{
+
+"errore, il numero inserito non corrisponde a nessuna delle possibili scelte. Riprova!" ->;
+}
+ 
+ 	
+ 
+ 
+"vuoi eseguire un'altra operazione?(inserisci 0 per termiare o 1 per continuare)" ->;
+i <-; 
+if(i==0) then{
+continua=false;
+}
+}
+"Programma finito" ->;
+

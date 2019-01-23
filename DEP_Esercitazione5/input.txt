@@ -1,0 +1,175 @@
+head
+
+int i;
+int scelta;
+char operandi;
+double operando1_Double;
+double operando2_Double;
+double risultatoDouble;
+bool continua;
+
+
+int operando1_Int;
+int operando2_Int;
+int risultatoInt;
+
+
+
+
+def moltiplicazioneDouble(in double x, in double y, out double res)
+{
+res=x*y;
+}
+
+def moltiplicazioneInt(in int x, in int y, out int res)
+{
+res=x*y;
+}
+
+
+def addizioneInt(in int x, in int y, out int res)
+{
+res=x+y;
+}
+def addizioneDouble(in double x, in double y, out double res)
+{
+res=x+y;
+}
+def divisioneInt(in int x, in int y, out int res)
+{
+res=x/y;
+}
+
+
+def divisioneDouble(in double x, in double y, out double res)
+{
+res=x/y;
+}
+
+def sottrazioneInt(in int x, in int y, out int res){
+res=x-y;
+}
+
+def sottrazioneDouble(in double x, in double y, out double res){
+res=x-y;
+}
+
+start
+
+"Questo programma permette di svolgere una serie di calcoli" ->;
+scelta=-1;
+i=-1;
+operandi=' ';
+continua=true;
+
+
+while (continua)
+do{
+"Scegli il tipo di operazione che vuoi eseguire, digita:" ->;
+"- 2 per eseguire una moltiplicazione" ->;
+"- 3 per eseguire una sottrazione" ->;
+"- 4 per eseguire una divisione" ->;
+"- 5 per eseguire un' addizione " ->;
+
+scelta <-;
+
+"Scegli il tipo di operandi da usare, digita:" ->;
+"- i per interi" ->;
+"- d per double" ->;
+operandi <-;
+
+if(operandi == 'i') then{
+operando1_Int=0;
+operando2_Int=0;
+risultatoInt=0;
+"Inserisci primo numero" ->;
+operando1_Int <-;
+"Inserisci secondo numero" ->;
+operando2_Int <-;
+
+
+
+}	else{
+if(operandi=='d') then{
+operando1_Double=0;
+operando2_Double=0;
+risultatoDouble=0;
+"Inserisci primo numero" ->;
+operando1_Double <-;
+"Inserisci secondo numero" ->;
+operando2_Double <-;
+}
+}
+
+
+
+
+
+if((scelta==2) and (operandi=='i')) then{
+moltiplicazioneInt(operando1_Int, operando2_Int,risultatoInt);
+"valore moltiplicazione=", risultatoInt->;
+
+}
+else{
+
+if((scelta==2) and (operandi=='d')) then{
+moltiplicazioneDouble(operando1_Double, operando2_Double , risultatoDouble);
+"valore moltiplicazione=", risultatoDouble->;
+}
+
+}
+
+
+
+if((scelta==3) and (operandi=='i')) then{
+sottrazioneInt(operando1_Int, operando2_Int , risultatoInt);
+"valore sottrazoione=", risultatoInt ->;
+}
+else{
+if((scelta==3) and (operandi=='d')) then{
+sottrazioneDouble(operando1_Double, operando2_Double , risultatoDouble);
+"valore sottrazoione=", risultatoInt ->;
+
+}
+}
+
+
+
+if((scelta==4) and (operandi=='i')) then{
+divisioneInt(operando1_Int, operando2_Int,risultatoInt);
+"valore divisione=", risultatoInt->;
+
+}
+else{
+
+if((scelta==4) and (operandi=='d')) then{
+divisioneDouble(operando1_Double, operando2_Double , risultatoDouble);
+"valore divisione=", risultatoDouble->;
+}
+
+}
+
+
+
+
+if((scelta==5) and (operandi=='i')) then{
+addizioneInt(operando1_Int, operando2_Int,risultatoInt);
+"valore addizione=", risultatoInt->;
+
+}
+else{
+
+if((scelta==5) and (operandi=='d')) then{
+addizioneDouble(operando1_Double, operando2_Double , risultatoDouble);
+"valore addizione=", risultatoDouble->;
+}
+
+}
+
+"vuoi eseguire un'altra operazione?(inserisci 0 per termiare o 1 per continuare)" ->;
+i <-; 
+if(i==0) then{
+continua=false;
+}
+}
+"Programma finito" ->;

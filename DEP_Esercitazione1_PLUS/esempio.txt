@@ -1,0 +1,18 @@
+--->
+-------->
+//come stai?
+1.2E 
+1..3E12
+1.2+
+
+---------->
+<----------
+-> -<
+-<>-
+/*Sono un commento***/
+
+//sono un commento a linea di comando!"
+<< >>
+--> <--	
+qjs aksp <lo
+<= = if a>12.3 then 1.2.3 ! if som?ma >= 30 then else return - somm_a
